@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+     /*
+      json的处理,和后端进行数据交互
+        
+        将json字符串转化为对象
+        JSON.parse()
+
+        将对象转化为json字符串
+         JSON.stringify()
+
+      ES6 的语法
+        变量声明 let     
+              1 不允许重复
+              2 存在暂时性死区,不允许提前访问
+              3 存在块级作用域 { }
+        常量声明 const
+              1 声明之后不允许被修改.
+              2 不允许修改引用值的地址
+        块级作用域
+              1 {} 之内就块级作用域
+              2 {} 之内的变量,外部不能访问
+              3 for(let i=0;i<10;i++){ i }  {}就是块级作用域
+                  每循环一次就生成一个块级作用域,保存变量i
+        
+        对象方法的写法
+             1 不用写成键值对的形式
+             let obj= {say(){}}
+             2 当变量名和属性名一致,可以直接在对象中写变量
+              let name='zs'
+             let obj={name}
+       
+       循环 for(let val of 可迭代对象){
+
+       }
+
+        字符串拼接
+         使用 `` 包含字符串,用 ${} 暴露变量
+
+         箭头函数
+           1 本质是赋值式函数
+           2 和一般函数的使用场景,基本一样
+           3 注意this指向
+           4 形式
+               let 函数名=()=>{}
+               let 函数名=参数=>{}
+               let 函数名=()=>函数体   此时函数内置了 return
+               let 函数名=参数=>函数体
+          箭头函数this指向
+            1 this指向宿主对象
+
+          结构赋值,将数组或对象的值,批量赋值给变量
+            let [param1,param2] = [元素1,元素2]
+            对象解构赋值,使用的最多
+
+            let {变量1,变量2,变量3=33}=obj;
+             1 变量名和属性名要一致,但是位置不要求
+             2 可以给变量设默认值
+     */
+
+  </script>
+</body>
+
+</html>

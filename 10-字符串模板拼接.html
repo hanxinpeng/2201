@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+      字符串模板拼接
+
+      使用 `` 和 ${变量}
+
+      一般打断拼接html代码时使用,它会保留换行
+    */
+    let name = '县长';
+    let info = '张麻子是谁?'
+
+    let str = `${name}说,${info},就是N筒`;
+    // console.log(str);
+
+    // 拼接html追加到页面中
+
+    let obj = [
+      { name: '县长', age: 22 },
+      { name: '师爷', age: 36 },
+      { name: '县长夫人', age: 33 }
+    ];
+    let html = '';
+    for (let index in obj) {
+      console.log(index);
+      html += `<div>
+               <p>姓名:${obj[index].name}</p>
+               <p>年龄:${obj[index].age}</p>
+               </div>`;
+
+    }
+
+    console.log(html);
+    // appendChild() 追加的必须是节点对象
+    // innerHTML 只能添加字符串
+    document.body.innerHTML = html;
+
+
+
+    // 拼接模板中调用函数,函数必须有返回值
+    function say() {
+      // console.log('猜我出来不....');
+      return '猜我出来不....';
+
+    }
+
+    let str1 = `世界这么大,春天这么美,${say()}`;
+    console.log(str1);
+
+
+
+  </script>
+</body>
+
+</html>

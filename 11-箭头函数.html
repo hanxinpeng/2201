@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 赋值式声明
+
+    let fn = function () {
+      console.log('赋值式声明...');
+
+    }
+    // fn();
+
+    /*
+      所有的箭头函数都是赋值式声明
+
+
+    
+    */
+
+    // 1 基本形式   let fn1=(参数1,形参2,...)=>{函数体}
+
+    let fn1 = (info, hobby = '200块钱') => {
+      console.log(info);
+      console.log(hobby);
+
+
+    }
+    // fn1('有本事当面说');
+
+    /*2 当形参只有一个,可以省略(),没有形参或者有多个形参都不可以省略
+      let fn2=(形参)=>{
+        函数体
+      }
+   let fn2=形参=>{
+        函数体
+      }
+
+    */
+
+    let fn2 = (info) => {
+      console.log(info);
+
+    }
+    // fn2('在痛苦中挣扎');
+
+    let fn3 = info => {
+      console.log(info);
+
+    }
+    // fn3('挣扎之后,更痛苦');
+
+    /*
+    3 当函数体,只有一句可以省略 {}
+     let fn4 = ()=>console.log('继续挣扎')
+    let fn4 = (str)=>  str;
+     省略{} 之后 当没有输出语句时,函数会自动return
+    */
+
+    let fn4 = () => console.log('继续挣扎');
+    //  fn4();
+
+    // 没有返回值,但是接收
+    // let res = fn4();
+    // console.log(res);  // undefined
+
+    // 会自动return
+    let fn5 = (info) => info + ',生活从此美丽';
+
+    let res1 = fn5('挣扎到底');
+    // console.log(res1);
+
+    /*
+    4 极简形式,不提倡这么写
+     let fn6=参数=>函数体
+    */
+
+    let fn6 = info => info + '66';
+    // console.log(fn6('你还认识我吗?'));
+
+
+  // 箭头函数可以使用在哪里?
+  // 基本上 function 能够使用的地方,箭头函数都可以用
+  // 两种函数使用时,一定要注意的就是this指向
+
+
+
+
+  </script>
+</body>
+
+</html>

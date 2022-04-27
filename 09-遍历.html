@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+    <li>444</li>
+    <li>555</li>
+  </ul>
+  <script>
+    /*
+     for(遍历的值 of 可遍历的数据){
+ 
+     }
+    
+    */
+
+    // var str = 'I want to beautiful girl friend!';
+    // for (let item of str) {
+    //   console.log(item);
+
+    // }
+
+
+
+    let obj = {
+      name: '摇摇',
+      age: 28,
+      say() {
+        console.log('见过你的美,还能爱上谁?');
+
+      }
+    }
+    // : obj is not iterable 对象不可以直接被迭代
+    // for (let attr of obj) {
+    //   console.log(attr);
+
+    // }
+
+    // 可以迭代,可以循环
+
+
+    let lisObj = document.querySelectorAll('li');
+    console.log(lisObj);
+    // for (let li of lisObj) {
+    //   console.log(li);
+
+    // }
+
+    //可迭代的数据结构,意味着就可以循环
+
+
+
+    // 一个可迭代的对象,一个可以循环的数据结构,必须包含索引,length
+    // 以后经常听到,可迭代对象,指的就是可以循序的数据
+
+  </script>
+</body>
+
+</html>

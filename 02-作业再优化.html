@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  
+		用户名：<input type="text" name="" id="user" value="" /><span></span><br />
+		密码：<input type="text" name="" id="pass" value="" /><span></span><br />
+		重复密码：<input type="text" name="" id="pass2" value="" /><span></span><br />
+        <input type="button" name="btn" id="btn" value="提交" />
+        <script>
+//		1.用户名           用户名仅支持中文、字母、数字、“-”“_”的组合，4-20个字符
+//		2.密码的规则        数字字母特殊字符，一种类型，弱。两种类型为中，三种类型为强,6-20个字符
+//		3.重复密码            跟第一次输入 密码一致
+//		4.手机号的验证      第一位必须为1，后面再加10位数字
+//		5.邮箱                数字大小写字母_- 3到12位   @  数字字母 2到9位  . 字母2到5位
+//		6.提交按钮的时候，判断所有输入数据是否符合。符合跳转，否，不跳
+        
+      // 准备:获取节点,绑定事件
+      var userObj = document.getElementById('user');
+      var passObj = document.getElementById('pass');
+      var pass2Obj = document.getElementById('pass2');
+      var butObj= document.getElementById('btn');
+
+      /***********用户名验证***********/
+      // 匹配用户名的正则
+      var  userReg =/[\u4E00-\u9FA5\w\-]{4,20}/;   // [0-9] - 使用时要转义 \-
+      // 标识,用户名,密码,重复密码,验证的状态
+      var x=false,y=false,z=false;
+      // 1 给用户的input框绑定失去焦点事件
+      userObj.onblur = function(){
+        // 2 获取value值
+        var userVal = this.value.replace(/\s/g,'');
+        // 没有值,则停止代码执行
+        // console.log(userVal+'1111');
+        
+        if(!userVal) return;
+        // console.log(userVal);
+        // 3 使用正则判断输入的用户名是否符合要求
+        // console.log(userReg.test(userVal));
+        if(userReg.test(userVal)){
+          this.nextElementSibling.innerHTML = '用户名符合要求';
+          // 设置状态为true
+          x=true;
+        }else{
+          this.nextElementSibling.innerHTML = '不符合要求';
+          // 设置状态为false
+          x = false;
+        }
+        
+      }
+
+      /**********密码验证********/ 
+       //1 失去焦点获取密码框的value
+       passObj.onblur = function(){      // obj.fn = function(){}    obj.fn()
+         // 去除空格
+         var passVal = this.value.replace(/\s/g,'');
+         // 密码为空,则停止代码执行
+         if(!passVal) return;
+        //  console.log(passVal);
+         //当重复密码中有值时,密码发生改变时,重新验证重复密码
+        if(pass2Obj.value){
+          // 直接调用对象中的方法
+          pass2Obj.onblur();
+        }
+       
+
+        // 1-1 判断长度是否否和要求
+        if(passVal.length<6 || passVal.length>20){
+          //1-2 设置密码状态为false
+          y=false;
+          this.nextElementSibling.innerHTML = '密码长度不符合要求';
+          return;
+        }
+        // 2 判断强中弱的思路,就是匹配密码中有几种符号
+          // 2-1 给出数字,有一种符号,则设置其中一个为1
+          var a=0,b=0,c=0;
+        
+          var numReg = /\d+/;
+          numReg.test(passVal) && (a=1);
+           // 2-2 匹配字母
+           var engReg = /[a-z]+/i;
+          engReg.test(passVal) && ( b=1);
+
+          // 2-3 匹配特殊书号
+          var strReg = /[^0-9a-z]+/i;
+          strReg.test(passVal) && (c=1);
+
+          // console.log(a,b,c);
+          // 2-4 根据匹配到的值,判断密码的强度
+          switch(a+b+c){
+            case 1:
+            this.nextElementSibling.innerHTML = '你的密码弱爆了';
+            break;
+
+             case 2:
+            this.nextElementSibling.innerHTML = '你的密码还中吧';
+            break;
+
+            case 3:
+            this.nextElementSibling.innerHTML = '你的密码太强了';
+            break;
+          }
+          // 2-5 设置密码符合要求
+          y=true;
+       }
+
+
+       /*********重复密码的验证********/
+       pass2Obj.onblur = function(){
+         // 1 获取重复密码
+         var pass2Val = this.value.replace(/\s/g,'');
+         // 密码为空则停止
+         if(!pass2Val) return;
+         // 2 获取密码
+         var passVal = passObj.value;
+
+        //  console.log(pass2Val,passVal);
+
+        // 3 进行两个密码的比对
+        if(pass2Val==passVal){
+          this.nextElementSibling.innerHTML = '两次密码一致';
+          z= true;
+        }else{
+          this.nextElementSibling.innerHTML = '两次密码不一致';
+          z= false;
+        }
+         
+       }
+
+
+       // xyz三个状态为true,则提交
+         butObj.onclick = function(){
+           if(x && y && z){
+             alert('提交成功')
+           }
+         }
+        </script>
+</body>
+</html>

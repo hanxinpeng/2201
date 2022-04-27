@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    年年岁岁花相似,岁岁年年人不同
+  </div>
+
+  <script>
+    let app = document.querySelector('#app');
+    app.onclick = () => {
+      console.log(111);
+      console.log(this);
+
+
+    }
+
+    // 回调函数使用箭头函数
+    setTimeout(() => {
+      console.log('啦啦....');
+
+    }, 10)
+  </script>
+</body>
+
+</html>

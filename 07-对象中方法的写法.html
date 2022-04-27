@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // 之前写法
+
+    let obj = {
+      name: '郭德纲',
+      age: 66,
+      say: function () {
+        console.log('都来德云社听相声...');
+
+      }
+    }
+
+    // obj.say();
+
+    // 现在可以只写方法名
+    let obj1 = {
+      name: '于谦',
+      say() {
+        console.log('喝酒抽烟烫头');
+
+      }
+    }
+
+    // obj1.say();
+
+    let name = '林志颖';
+    let age = 60;
+    // 如果属性名和变量名一致,则直接写变量名
+    let obj2 = {
+      name,
+      age,
+      say() {
+        console.log('中国人不骗中国人,那骗谁?');
+
+      }
+    }
+
+    console.log(obj2);
+
+
+  </script>
+</body>
+
+</html>

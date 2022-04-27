@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // json 对象,和对象区别 就是 属性也要加 ""
+
+    var obj = {
+      name: '小甜甜',
+      age: 12
+    }
+
+    var jsonObj = {
+      "name": "小白兔",
+      "age": 22
+    }
+
+    // console.log(obj, jsonObj);
+
+    /*
+     json 对象转化为字符串,方便前端后端交互
+
+     JSON.stringfy()
+    
+    */
+    // var jsonStr = JSON.stringify(jsonObj);
+    // console.log(jsonStr);
+
+
+    /*
+     将json字符串,转化为对象
+     JSON.parse(json字符串)
+    
+    */
+
+    var jsonStr1 = '{"name":"小白兔","age":22}';
+    var res2 = JSON.parse(jsonStr1);
+    console.log(res2);
+
+
+    // json 数组对象转化为json字符串
+    var jsonArr = [
+      { "name": "小白兔", "age": 22 },
+      { "name": "李换", "age": 23 },
+      { "name": "刘利", "age": 24 },
+    ];
+
+    // console.log(JSON.stringify(jsonArr));
+
+    // 和后台交互,使用的都是json数组字符串形式
+    var jsonStr1 = '[{"name":"小白兔","age":22},{"name":"李换","age":23},{"name":"刘利","age":24}]';
+
+    console.log(JSON.parse(jsonStr1));
+
+
+
+  </script>
+</body>
+
+</html>

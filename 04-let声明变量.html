@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //  常规使用
+    // let info = '其实我也是天文学家,他们发现了星星,我发现了你!';
+
+    // let age = 22;
+    // console.log(info, age);
+
+
+    /*和var的区别*/
+    //1 不允许重复声明
+    var a = 22;
+    var a = 18;
+    // console.log(a);
+
+    // let b = 12;
+    // let b = 24;
+
+    // 2 let 不存在变量提升
+    // 存在暂时性死区,变量没有被赋值之前是不允许访问的.
+    // let a; 声明
+    // a=100; 赋值 初始化
+    // console.log(info1);
+    // let info1 = '哈哈,嘿嘿,呵呵...';
+
+
+    // 3 存在块级作用域
+    // {} 之内就是块级作用域,块级作用域内的变量,不允许在外部使用
+    if (1) {
+      var info2 = '猜我出来不?';
+      let info3 = '猜你不出出来';
+    }
+
+    // console.log(info2);
+    // console.log(info3);
+
+    // 全局变量依然可以在{} 之内使用
+    let info4 = '好使不?';
+    if (true) {
+      console.log(info4);
+
+    }
+
+
+
+  </script>
+</body>
+
+</html>

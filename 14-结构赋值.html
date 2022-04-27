@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+      解构赋值,将对象或者数组中值,一次性赋值给变量
+      主要用于对象的解构
+    */
+    let arr = ['王逸飞', '拉登', '元首', '蛤蟆'];
+
+    // 数组元素批量赋值给变量,变量和数组元素是位置对应关系
+    // let [info1, info2, info3, info4] = arr;
+    // console.log(info1, info2, info3, info4);
+    // let [info1] = arr;
+    // console.log(info1);
+
+
+    let obj = {
+      name: '拉登',
+      age: 68,
+      info: '榜一智商250',
+      say() {
+        console.log('充钱升智商...');
+
+      }
+    }
+
+    // 对象解构赋值,变量名字要和属性一致
+
+    // let { name, age, info, say } = obj;
+    //  let { name, age, info, say } 相当于 let name;let age;
+    // console.log(name, age, info, say);
+    // say();
+
+    // 属性名一致,位置可以不用对应
+    // let { age, name } = obj;
+    // console.log(age, name);
+
+    // 可以设置默认值
+    let { age, name, hobby = 'LOL' } = obj;
+    // let hobby;
+    // console.log(hobby);
+
+    // 解构数学对象  Math.random()  Math.min()
+    let { random, min } = Math;
+    // console.log(random());
+
+    // ES6的模块化,引入其它js文件时,解构提供的对象
+
+
+
+
+
+  </script>
+</body>
+
+</html>

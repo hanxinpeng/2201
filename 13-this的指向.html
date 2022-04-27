@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app"> 解释this指向</div>
+  <script>
+    /*
+      一般函数中this指向
+ 
+      1 在全局作用域中的函数,this----->window
+      2 在行内绑定的事件回调函数中,this----->window
+      3 js动态绑定的事件中,this----->当前节点
+      4 对象的方法中,this---->当前对象
+ 
+    箭头函数中this
+        指向当前的宿主对象
+    */
+
+
+    // 事件回调的箭头函数中的this指向win
+    let app = document.getElementById('app');
+    // 事件回调函数中,使用箭头函数,this不指向当前节点,会给操作带来麻烦
+    app.onclick = (eve) => {
+      console.log(this);
+        console.log(eve);
+
+      // 获取事件源
+         console.log(eve.target);
+
+    }
+
+   // arguments 当我们封装了函数,被调用时,不确定调用者传递参数数量,就可以通过
+   // 他获取.
+   
+    // function fn5() {
+    //   console.log(arguments);
+
+    // }
+    // fn5(11, 22, 33)
+
+    // 箭头函数中没有arguments
+    // let fn6 = () => {
+    //   console.log(arguments);
+
+    // }
+    // fn6(44, 55, 66)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+      常量,声明之后不允许被修改.
+      问题:值不允许被修改,还是引用的位置不允许被修改?
+          不是值不允许被改变,
+          而是其引用的位置不允许改变
+    */
+    let a = 12;
+    a = 34;
+    // console.log(a);
+
+    const info = '幸福从追求开始';
+
+
+    // info = '幸福从召唤富婆开始';
+
+    // console.log(info);
+
+    // 将值设置为对象
+    const obj = {
+      name: '小表弟',
+      age: 22
+    }
+
+    obj.age = 18;
+    console.log(obj);
+
+    // 如果重新赋值,则会报错
+    // obj = 12;
+    // console.log(obj);
+
+   //一般会使用const 多点,浏览器在解析的时候,会直接使用值去替换,而不是像变量一样
+   // 使用的时候去变量表中查找.
+  </script>
+</body>
+
+</html>

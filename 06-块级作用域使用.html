@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    ol,
+    li {
+      list-style: none;
+    }
+
+    .box {
+      width: 600px;
+      height: 320px;
+      border: 3px solid pink;
+      margin: 50px auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .box>ul {
+      height: 60px;
+      display: flex;
+    }
+
+    .box>ul>li {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      color: #fff;
+      background-color: skyblue;
+      cursor: pointer;
+    }
+
+    .box>ul>li.active {
+      background-color: orange;
+    }
+
+    .box>ol {
+      flex: 1;
+      position: relative;
+    }
+
+    .box>ol>li {
+      width: 100%;
+      height: 100%;
+      background-color: purple;
+      font-size: 100px;
+      color: #fff;
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: none;
+    }
+
+    .box>ol>li.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <ul>
+      <li class="active">1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <ol>
+      <li class="active">1</li>
+      <li>2</li>
+      <li>3</li>
+    </ol>
+  </div>
+
+  <script>
+
+
+
+    /***
+    
+     通过控制active类
+  
+      1 控制选项卡中li的选中
+      2 控制ol中页面的显示
+    
+    ***/
+
+    // 使用let 的写法
+
+    const ulLisObj = document.querySelectorAll('ul li');
+    const olLisObj = document.querySelectorAll('ol li');
+    // 存在块级作用域,for循环一次就是一个 块级作用域,i的值在每一个块级作用域中
+    // i就被保存下来了
+    for (let i = 0; i < ulLisObj.length; i++) {
+      ulLisObj[i].onclick = function () {
+        // console.log(this, i);
+        // 设置当前ul的li(选项卡选中),清除其它选中的
+        document.querySelector('ul li.active') && (document.querySelector('ul li.active').className = '');
+        this.className = 'active';
+
+        // 让对应的页面也被选中
+        document.querySelector('ol li.active') && (document.querySelector('ol li.active').className = '');
+
+        //页面显示的顺序和选项卡是对应的
+        olLisObj[i].className = 'active';
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    // 使用var 声明 之前写法
+    // var ulLisObj = document.querySelectorAll('ul li');
+    // var olLisObj = document.querySelectorAll('ol li');
+
+    // // 点击选项卡实现选中
+    // for (var i = 0; i < ulLisObj.length; i++) {
+    //   // 将选项卡对应的i,索引存储到 对应的li上
+    //   ulLisObj[i].dataset.key = i;
+    //   // 当我们触发事件时,循环已经结束,i已经是不满足条件的那个值
+    //   ulLisObj[i].onclick = function () {
+    //     // console.log(this);
+    //     // console.log(i);  // 不管点击那个都是3
+
+    //     // 获取当前点击的li,对应的索引值
+    //     var key = this.dataset.key
+    //     // 清除选项卡中选中的(ul,li)
+    //     document.querySelector('ul li.active') && (document.querySelector('ul li.active').className = '');
+    //     // 设置当前操作的选显卡选中(ul,li)
+    //     this.className = 'active';
+    //     // console.log(key);
+    //     // 清除页面中已经有的(ol中已经选中的li)
+    //     document.querySelector('ol li.active') && (document.querySelector('ol li.active').className = '');
+
+    //     // 根据下标设置,和选项卡对应的页面
+    //     // console.log(olLisObj[key]);
+
+    //     olLisObj[key].classList.add('active');
+
+
+
+    //   }
+    // }
+  </script>
+</body>
+
+</html>
